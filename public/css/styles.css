@@ -1,0 +1,47 @@
+.homeBody{
+  background-color: #eeeeee;
+}
+.home{
+  padding: 100px 300px 300px 300px;
+}
+
+.buttons{
+  text-align: center;
+}
+
+.buttons button{
+    margin-top: 40px;
+    margin-right: 20px;
+    width: 120px;
+    height: 50px;
+}
+
+.homeLabel{
+  color:#821752;
+  text-align: center;
+  font-size: 60px;
+  padding-bottom: 30px;
+}
+
+/* media queries */
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+  .home{
+    padding: 10px 10px;
+  }
+  .homeLabel{
+    padding-top:15px;
+    color:#821752;
+    text-align: center;
+    font-size: 30px;
+    padding-bottom: 15px;
+  }
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+  .home{
+    padding: 20px;
+  }
+
+}
