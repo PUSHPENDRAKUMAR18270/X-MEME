@@ -1,19 +1,17 @@
 .homeBody{
   background-color: #eeeeee;
 }
-.home{
-  padding: 100px 300px 300px 300px;
+.memeSubmission{
+  padding: 20px 300px 50px 300px;
 }
 
-.buttons{
-  text-align: center;
-}
 
-.buttons button{
-    margin-top: 40px;
-    margin-right: 20px;
+.button{
+    display:inline-block;
+    margin: 10px 55% 10px 45%;
     width: 120px;
     height: 50px;
+    text-align: center;
 }
 
 .homeLabel{
@@ -23,12 +21,37 @@
   padding-bottom: 30px;
 }
 
+.memeCarousel{
+  height:fit-content;
+  overflow-y: auto;
+  background-color: gray;
+}
+
+.centerMeme{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: fit-content;
+  height: fit-content;
+}
+
+
 /* media queries */
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px) {
-  .home{
-    padding: 10px 10px;
+
+  .memeSubmission{
+    padding: 10px 40px 10px 40px;
   }
+
+  .button{
+      display:inline-block;
+      margin: 5px 63% 5px 37%;
+      width: 90px;
+      height: fit-content;
+      text-align: center;
+  }
+
   .homeLabel{
     padding-top:15px;
     color:#821752;
@@ -36,12 +59,25 @@
     font-size: 30px;
     padding-bottom: 15px;
   }
+
 }
+
+
+
 
 /* Small devices (portrait tablets and large phones, 600px and up) */
 @media only screen and (min-width: 600px) {
-  .home{
+
+  .memeSubmission{
     padding: 20px;
+  }
+
+
+}
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+  .memeSubmission{
+    padding: 20px 300px 50px 300px;
   }
 
 }

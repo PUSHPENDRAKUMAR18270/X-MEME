@@ -2,7 +2,7 @@
 const mongoose = require('mongoose');
 module.exports.connection=function(){
     //connect with database
-    mongoose.connect('mongodb://localhost/MemeStreamDb',{
+    mongoose.connect('mongodb://localhost/StreamedMemesDB',{
         useNewUrlParser:true,
         useUnifiedTopology: true,
         useCreateIndex: true,
@@ -15,12 +15,12 @@ module.exports.connection=function(){
     });
 };
 
-module.exports.createComposeCollection=function(){
+module.exports.createMemeCollection=function(){
     //connection();
-    const composeCollection= mongoose.Schema({
-        owner:String,
+    const memeCollection= mongoose.Schema({
+        memeOwner:String,
         caption:String,
-        url:String
+        URL:String
     });
-    return mongoose.model("compose",composeCollection);
+    return mongoose.model("meme",memeCollection);
 };
