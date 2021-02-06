@@ -31,21 +31,25 @@ StreamedMemesDB.connection();
 const Meme = StreamedMemesDB.createMemeCollection();
 //error handling if all fields are not provided success message if submitted successfully
 app.get("/",function(req,res){
-    console.log("Requesting home page");
-    res.send('home page come here');
+    // console.log("Requesting home page");
+    res.render('xmeme');
 });
 
 app.get("/memes",function(req,res){
     console.log("Requesting memes");
     var action = function (err, collection) {
         collection.find().toArray(function(err, results) {
-            console.log(results);
+            // console.log(results);
+            // res.send(results);
             results.reverse();
-            res.render('home',{memes:results})
+            // res.send(results);
+            res.render('home',{memes:results});
         });
     };
     mongoose.connection.db.collection('memes',action);
 });
+
+
 
 app.post("/memes",[body('memeOwner', 'Invalid name').trim().isLength({ min: 1 }),
     body('caption', 'Invalid caption').trim().isLength({ min: 1 }),
@@ -63,7 +67,7 @@ app.post("/memes",[body('memeOwner', 'Invalid name').trim().isLength({ min: 1 })
                 type: 'danger',
                 intro: 'please fill all the details ',
                 message: 'name, caption, URL must not be empty'
-              }
+              };
               res.redirect('memes');
         }
         else{
@@ -83,6 +87,7 @@ app.post("/memes",[body('memeOwner', 'Invalid name').trim().isLength({ min: 1 })
                 meme.save(function(err){
                     if (!err){
                         //make a toast that your post has been sent. Our team will look into it.
+                        // res.send('1');
                         res.redirect("memes");
                     }
                     else{
@@ -92,6 +97,20 @@ app.post("/memes",[body('memeOwner', 'Invalid name').trim().isLength({ min: 1 })
             }
         }
 );
+
+app.get("/memes/:id",function(req,res){
+  var id=req.params.id;
+  // console.log(id);
+  id-=1;
+  var action = function (err, collection) {
+      collection.find().toArray(function(err, results) {
+        if(id>=0&&id<results.length)
+          res.render('meme',{id:id+1,meme:results[id]});
+        else res.render('error');
+      });
+  };
+  mongoose.connection.db.collection('memes',action);
+});
 
 app.get('*', function(req, res) {
     res.render('error');
