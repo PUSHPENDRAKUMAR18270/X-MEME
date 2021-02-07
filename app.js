@@ -36,13 +36,9 @@ app.get("/",function(req,res){
 });
 
 app.get("/memes",function(req,res){
-    console.log("Requesting memes");
     var action = function (err, collection) {
         collection.find().toArray(function(err, results) {
-            // console.log(results);
-            // res.send(results);
             results.reverse();
-            // res.send(results);
             res.render('home',{memes:results});
         });
     };
@@ -55,9 +51,6 @@ app.post("/memes",[body('memeOwner', 'Invalid name').trim().isLength({ min: 1 })
     body('caption', 'Invalid caption').trim().isLength({ min: 1 }),
     body('URL', 'Invalid URL').trim().isLength({min:1})],
     function(req,res){
-      //console.log('inpost');
-      // console.log('hi'+req.body.memeOwner);
-      // console.log('hello'+req.body.caption);
         let errors = validationResult(req);
         let errorArray=errors.array();
         // console.log(errorArray);
@@ -86,8 +79,6 @@ app.post("/memes",[body('memeOwner', 'Invalid name').trim().isLength({ min: 1 })
                 });
                 meme.save(function(err){
                     if (!err){
-                        //make a toast that your post has been sent. Our team will look into it.
-                        // res.send('1');
                         res.redirect("/memes");
                     }
                     else{
@@ -116,7 +107,11 @@ app.get('*', function(req, res) {
     res.render('error');
 });
 
+let port = process.env.PORT;
+if (port == null || port == "") {
+  port = 3000;
+}
 
-app.listen(3000,function(){
-    console.log("server started at port 3000");
+app.listen(port,function(){
+    console.log("server has started successfully");
 });
