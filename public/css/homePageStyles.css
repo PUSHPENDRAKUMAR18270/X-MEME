@@ -56,10 +56,10 @@ margin-left: 30%;
   margin-left: auto;
   margin-right: auto;
   object-fit: contain;
- max-width: 100%;
- max-height: 100%;
- width: auto;
- height: auto;
+   max-width: 100%;
+   max-height: 100%;
+   width: auto;
+   height: auto;
 }
 
 

@@ -45,18 +45,14 @@
       <h2><b>Caption name</b></h2>
       <p>Owner name</p>
     </div>
-    <div class="">
       <img class="d-block centerMeme"  src="/images/logo.jpg" alt="Demo Meme">
-    </div>
     <%var slideNumber=0;%>
     <%while(slideNumber<memes.length){%>
     <div class="memeInfo">
-      <h2><b><%=memes[slideNumber].caption%></b></h2>
+      <h4><b><%=memes[slideNumber].caption%></b></h4>
       <p><%=memes[slideNumber].memeOwner%></p>
     </div>
-    <div class="">
-      <img class="d-block centerMeme" src="<%=memes[slideNumber].URL%>" alt="<%=memes[slideNumber].caption%>">
-    </div>
+      <img class="centerMeme" src="<%=memes[slideNumber].URL%>" alt="<%=memes[slideNumber].caption%>">
     <%slideNumber+=1;%>
     <%}%>
   </div>

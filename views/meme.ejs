@@ -3,15 +3,16 @@
   <head>
     <meta charset="utf-8">
     <title>meme <%=id%></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" href="/images/logo.jpg">
     <link rel="stylesheet" href="/css/memeStyles.css">
   </head>
   <body>
     <div class="memeInfo">
-      <h1><%=meme.caption%></h1>
-      <p><%=meme.memeOwner%></p>
+      <h1 style="color:#493323;"><%=meme.caption%></h1>
+      <p style="color: black;"><%=meme.memeOwner%></p>
     </div>
-    <div style="postiion:relative;">
+    <div style="position:relative;height:80vh;width:100%;">
       <img class="centered" src="<%=meme.URL%>" alt="<%=meme.caption%>">
     </div>
 
