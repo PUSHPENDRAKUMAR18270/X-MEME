@@ -46,7 +46,7 @@ app.get("/memes",function(req,res){
             res.render('home',{memes:results});
         });
     };
-    mongoose.connection.db.collection('memes',action);
+    mongoose.connection.db.collection('productionmemes',action);
 });
 
 
@@ -68,7 +68,7 @@ app.post("/memes",[body('memeOwner', 'Invalid name').trim().isLength({ min: 1 })
                 intro: 'please fill all the details ',
                 message: 'name, caption, URL must not be empty'
               };
-              res.redirect('memes');
+              res.redirect('/memes');
         }
         else{
             req.session.message = {
@@ -88,7 +88,7 @@ app.post("/memes",[body('memeOwner', 'Invalid name').trim().isLength({ min: 1 })
                     if (!err){
                         //make a toast that your post has been sent. Our team will look into it.
                         // res.send('1');
-                        res.redirect("memes");
+                        res.redirect("/memes");
                     }
                     else{
                         res.send("error occured please try again");
@@ -109,7 +109,7 @@ app.get("/memes/:id",function(req,res){
         else res.render('error');
       });
   };
-  mongoose.connection.db.collection('memes',action);
+  mongoose.connection.db.collection('productionmemes',action);
 });
 
 app.get('*', function(req, res) {

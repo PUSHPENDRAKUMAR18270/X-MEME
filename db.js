@@ -17,10 +17,10 @@ module.exports.connection=function(){
 
 module.exports.createMemeCollection=function(){
     //connection();
-    const memeCollection= mongoose.Schema({
+    const productionMemeCollection= mongoose.Schema({
         memeOwner:String,
         caption:String,
         URL:String
     });
-    return mongoose.model("meme",memeCollection);
+    return mongoose.model("productionMeme",productionMemeCollection);
 };
